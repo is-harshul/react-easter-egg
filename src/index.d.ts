@@ -31,7 +31,7 @@ declare global {
     }
 }
 export type ClickPattern = number[];
-export type EasterEggConfig = {
+type EasterEggConfig = {
     trigger: string | ClickPattern;
     callback: () => void;
     type: "keyCombo" | "mouseRegion" | "voiceCommand";
@@ -53,3 +53,4 @@ declare const useEasterEgg: (config: EasterEggConfig) => {
     isListening: boolean;
 };
 export { useEasterEgg };
+export type { EasterEggConfig };

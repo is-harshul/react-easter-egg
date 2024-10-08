@@ -121,4 +121,3 @@ const useEasterEgg = (config) => {
     return { triggered, EasterEggWrapper, isListening };
 };
 export { useEasterEgg };
-// export type { EasterEggConfig };
