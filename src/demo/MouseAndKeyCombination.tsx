@@ -52,15 +52,15 @@ const MouseAndKeyCombination: React.FC = () => {
     type: "mouseRegion",
   };
 
-  const anotherEgg: EasterEggConfig = {
-    trigger: "Try me", // Trigger on type
-    callback: () => alert("Another easter egg activated!"),
+  const keebEgg: EasterEggConfig = {
+    trigger: "try me", // Trigger on type
+    callback: () => alert("Keyboard easter egg activated!"),
     type: "keyCombo",
   };
 
   const { triggered: mouseEggTriggered, EasterEggWrapper } =
     useEasterEgg(easterEggConfig);
-  const { triggered: keebEggTriggered } = useEasterEgg(anotherEgg);
+  const { triggered: keebEggTriggered } = useEasterEgg(keebEgg);
 
   useEffect(() => {
     if (mouseEggTriggered || keebEggTriggered) {
@@ -70,14 +70,19 @@ const MouseAndKeyCombination: React.FC = () => {
 
   return (
     <div>
-      <h1>My Component</h1>
+      <h1>Mouse and Keyboard</h1>
+      Try tripple click on the container <br />
+      OR
+      <br /> Try typing `try me`
       <EasterEggWrapper>
         <div
           style={{
+            marginTop: 16,
             width: 100,
-            height: 100,
+            height: 65,
             background: "grey",
             display: "flex",
+            borderRadius: 4,
             justifyContent: "center",
             alignItems: "center",
             cursor: "pointer",
