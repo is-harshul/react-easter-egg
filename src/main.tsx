@@ -1,12 +1,19 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
+import MouseAndKeyCombination from "./demo/MouseAndKeyCombination.tsx";
+import SpeechRecognition from "./demo/Speech.tsx";
+
 import "./index.css";
-import SpeechRecognition from "./Speech.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    {/* <App /> */}
-    <SpeechRecognition />
+    <main className="main-container">
+      <section className="section mouse-key">
+        <MouseAndKeyCombination />
+      </section>
+      <section className="section speech">
+        <SpeechRecognition />
+      </section>
+    </main>
   </StrictMode>
 );

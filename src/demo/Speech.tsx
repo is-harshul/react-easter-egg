@@ -1,5 +1,5 @@
 import React from "react";
-import { EasterEggConfig } from "./types";
+import { EasterEggConfig } from "../types";
 import { useEasterEgg } from ".";
 
 const SpeechRecognition: React.FC = () => {
@@ -29,20 +29,22 @@ const SpeechRecognition: React.FC = () => {
       <EasterEggWrapper>
         <div
           style={{
-            width: 200,
+            width: 400,
             height: 100,
-            background: "lightblue",
+            border: "1px solid black",
+            borderRadius: 4,
             padding: "10px",
           }}
         >
           {isListening
-            ? "Listening for voice command..."
-            : "Click to start listenings"}
+            ? "👂🏼 Listening for voice command..."
+            : "👆🏼 Click to start listenings"}
+          <br />
           <br />
           Say "Hello hello" to trigger the Easter egg!
         </div>
       </EasterEggWrapper>
-      {triggered && <p>Easter egg found!</p>}
+      {triggered && <p>Easter 🥚 found! ✅</p>}
     </div>
   );
 };

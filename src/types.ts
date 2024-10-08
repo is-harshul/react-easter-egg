@@ -45,3 +45,10 @@ export type EasterEggConfig = {
   type: "keyCombo" | "mouseRegion" | "voiceCommand";
   voicePhrase?: string;
 };
+
+export type ConfettiOptions = {
+  angle: number;
+  spread: number;
+  particleCount: number;
+  origin: { y: number };
+};
