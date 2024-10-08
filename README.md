@@ -1,7 +1,3 @@
-# React + TypeScript + Vite
-
-Lets you create/add and manage Easter eggs in your React application.
-
 ## Easter Egg Hook for React
 
 This project provides a custom React hook for easily adding and managing Easter eggs in your React applications. The hook supports various types of Easter eggs, including key combinations, mouse click patterns, and voice commands.
