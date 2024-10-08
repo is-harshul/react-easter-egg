@@ -3,7 +3,7 @@ import type {
   EasterEggConfig,
   SpeechRecognition,
   SpeechRecognitionEvent,
-} from "../types";
+} from "./types";
 
 const useEasterEgg = (config: EasterEggConfig) => {
   const [triggered, setTriggered] = useState(false);

@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import MouseAndKeyCombination from "./demo/MouseAndKeyCombination.tsx";
 import SpeechRecognition from "./demo/Speech.tsx";
 
-import "./index.css";
+import "./demo/index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

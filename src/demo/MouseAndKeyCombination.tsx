@@ -1,6 +1,7 @@
-import React from "react";
-import { useEasterEgg } from ".";
+import React, { useEffect } from "react";
+import { useEasterEgg } from "..";
 import { EasterEggConfig } from "../types";
+import { triggerConfetti } from "./createConfetti";
 
 // const MyComponent: React.FC = () => {
 //   const easterEggConfig: EasterEggConfig = {
@@ -44,10 +45,6 @@ import { EasterEggConfig } from "../types";
 //   }
 // }
 
-function randomInRange(min: number, max: number) {
-  return Math.random() * (max - min) + min;
-}
-
 const MouseAndKeyCombination: React.FC = () => {
   const easterEggConfig: EasterEggConfig = {
     trigger: "3", // Trigger on triple-click
@@ -61,8 +58,15 @@ const MouseAndKeyCombination: React.FC = () => {
     type: "keyCombo",
   };
 
-  const { triggered, EasterEggWrapper } = useEasterEgg(easterEggConfig);
+  const { triggered: mouseEggTriggered, EasterEggWrapper } =
+    useEasterEgg(easterEggConfig);
   const { triggered: keebEggTriggered } = useEasterEgg(anotherEgg);
+
+  useEffect(() => {
+    if (mouseEggTriggered || keebEggTriggered) {
+      triggerConfetti();
+    }
+  }, [keebEggTriggered, mouseEggTriggered]);
 
   return (
     <div>
@@ -78,19 +82,11 @@ const MouseAndKeyCombination: React.FC = () => {
             alignItems: "center",
             cursor: "pointer",
           }}
-          onClick={() => {
-            confetti({
-              angle: randomInRange(55, 125),
-              spread: randomInRange(50, 70),
-              particleCount: randomInRange(50, 100),
-              origin: { y: 0.6 },
-            });
-          }}
         >
           Click me!
         </div>
       </EasterEggWrapper>
-      {triggered && <p>Easter 🥚 found!</p>}
+      {mouseEggTriggered && <p>Mouse tap Easter 🥚 found!</p>}
       {keebEggTriggered && <p>Keeb Easter 🥚 found!</p>}
     </div>
   );

@@ -1,11 +1,16 @@
 import React from "react";
 import { EasterEggConfig } from "../types";
-import { useEasterEgg } from ".";
+import { useEasterEgg } from "..";
+import { triggerConfetti } from "./createConfetti";
 
 const SpeechRecognition: React.FC = () => {
   const easterEggConfig: EasterEggConfig = {
     trigger: "reveal you secrets",
-    callback: () => alert("Voice-activated Easter egg found!"),
+    callback: () => {
+      triggerConfetti();
+      triggerConfetti();
+      triggerConfetti();
+    },
     type: "voiceCommand",
     // voicePhrase: "reveal you secrets",
     voicePhrase: "hello hello",
