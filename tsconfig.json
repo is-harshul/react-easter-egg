@@ -19,6 +19,7 @@
     "declarationDir": "dist",
     "emitDeclarationOnly": false,
     "composite": true,
+    "allowSyntheticDefaultImports": true,
   },
   "include": ["src"],
   "exclude": ["src/demo"],

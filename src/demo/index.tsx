@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import MouseAndKeyCombination from "./MouseAndKeyCombination.tsx";
-import SpeechRecognition from "./Speech.tsx";
+import MouseAndKeyCombination from "./MouseAndKeyCombination.js";
+import SpeechRecognition from "./Speech.js";
 
 import "./index.css";
 
