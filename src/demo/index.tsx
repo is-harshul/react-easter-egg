@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import MouseAndKeyCombination from "./demo/MouseAndKeyCombination.tsx";
-import SpeechRecognition from "./demo/Speech.tsx";
+import MouseAndKeyCombination from "./MouseAndKeyCombination.tsx";
+import SpeechRecognition from "./Speech.tsx";
 
-import "./demo/index.css";
+import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

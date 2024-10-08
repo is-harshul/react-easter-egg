@@ -158,3 +158,4 @@ const useEasterEgg = (config: EasterEggConfig) => {
 };
 
 export { useEasterEgg };
+export type { EasterEggConfig };
