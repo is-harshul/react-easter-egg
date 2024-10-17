@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useEasterEgg } from "..";
+import { useEasterEgg } from "../index";
 import { EasterEggConfig } from "../types";
 import { triggerConfetti } from "./createConfetti";
 
@@ -47,9 +47,9 @@ import { triggerConfetti } from "./createConfetti";
 
 const MouseAndKeyCombination: React.FC = () => {
   const easterEggConfig: EasterEggConfig = {
+    type: "mouseRegion",
     trigger: "3", // Trigger on triple-click
     callback: () => alert("Easter egg activated!"),
-    type: "mouseRegion",
   };
 
   const keebEgg: EasterEggConfig = {

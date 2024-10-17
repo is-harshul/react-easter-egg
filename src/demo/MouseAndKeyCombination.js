@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect } from "react";
-import { useEasterEgg } from "..";
+import { useEasterEgg } from "../index";
 import { triggerConfetti } from "./createConfetti";
 // const MyComponent: React.FC = () => {
 //   const easterEggConfig: EasterEggConfig = {
@@ -40,9 +40,9 @@ import { triggerConfetti } from "./createConfetti";
 // }
 const MouseAndKeyCombination = () => {
     const easterEggConfig = {
+        type: "mouseRegion",
         trigger: "3", // Trigger on triple-click
         callback: () => alert("Easter egg activated!"),
-        type: "mouseRegion",
     };
     const keebEgg = {
         trigger: "try me", // Trigger on type

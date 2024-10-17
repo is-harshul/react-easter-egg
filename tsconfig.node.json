@@ -7,7 +7,7 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "isolatedModules": true,
+    "isolatedModules": false,
     "composite": true,
     "allowSyntheticDefaultImports": true,
     "moduleDetection": "force",

@@ -1,5 +1,5 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useEasterEgg } from "..";
+import { useEasterEgg } from "../index";
 import { triggerConfetti } from "./createConfetti";
 const SpeechRecognition = () => {
     const easterEggConfig = {

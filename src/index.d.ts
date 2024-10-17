@@ -30,12 +30,13 @@ declare global {
         webkitSpeechRecognition: new () => SpeechRecognition;
     }
 }
-export type ClickPattern = number[];
+export type ClickPattern = string | number[];
 type EasterEggConfig = {
-    trigger: string | ClickPattern;
+    trigger: string;
     callback: () => void;
     type: "keyCombo" | "mouseRegion" | "voiceCommand";
     voicePhrase?: string;
+    consecutiveClickGap?: number;
 };
 export type ConfettiOptions = {
     angle: number;

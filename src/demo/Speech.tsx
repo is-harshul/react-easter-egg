@@ -1,6 +1,6 @@
 import React from "react";
 import { EasterEggConfig } from "../types";
-import { useEasterEgg } from "..";
+import { useEasterEgg } from "../index";
 import { triggerConfetti } from "./createConfetti";
 
 const SpeechRecognition: React.FC = () => {

@@ -48,12 +48,12 @@ declare global {
 export type ClickPattern = number[];
 
 type EasterEggConfig = {
-  trigger: string | ClickPattern;
+  trigger: string;
   callback: () => void;
   type: "keyCombo" | "mouseRegion" | "voiceCommand";
   voicePhrase?: string;
+  consecutiveClickGap?: number;
 };
-
 export type ConfettiOptions = {
   angle: number;
   spread: number;
@@ -68,9 +68,11 @@ const useEasterEgg = (config: EasterEggConfig) => {
 
   useEffect(() => {
     let currentSequence = "";
-    let clickPattern: number[] = [];
+    // let clickPattern: number[] = [];
+    let clickCount = 0;
+
     let lastClickTime = 0;
-    let currentClickCount = 0;
+    // let currentClickCount = 0;
     let recognition: SpeechRecognition | null = null;
 
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -95,48 +97,74 @@ const useEasterEgg = (config: EasterEggConfig) => {
 
         if (isInRegion) {
           const currentTime = new Date().getTime();
-          const timeDiff = currentTime - lastClickTime;
-
-          if (timeDiff < 300) {
-            currentClickCount++;
+          if (
+            currentTime - lastClickTime <
+            (config.consecutiveClickGap || 300)
+          ) {
+            clickCount++;
           } else {
-            if (currentClickCount > 0) {
-              clickPattern.push(currentClickCount);
-            }
-            currentClickCount = 1;
+            clickCount = 1;
           }
-
           lastClickTime = currentTime;
 
-          if (Array.isArray(config.trigger)) {
-            const triggerPattern = config.trigger as number[];
-            const patternToCheck = [...clickPattern, currentClickCount];
-
-            if (
-              patternToCheck.length === triggerPattern.length &&
-              patternToCheck.every(
-                (count, index) => count === triggerPattern[index]
-              )
-            ) {
-              setTriggered(true);
-              config.callback();
-              clickPattern = [];
-              currentClickCount = 0;
-            } else if (patternToCheck.length >= triggerPattern.length) {
-              clickPattern = [];
-              currentClickCount = 1;
-            }
+          if (clickCount === parseInt(config.trigger as string)) {
+            setTriggered(true);
+            config.callback();
+            clickCount = 0;
           }
         }
+        // if (isInRegion) {
+        //   console.log("inside region");
+        //   const currentTime = new Date().getTime();
+        //   const timeDiff = currentTime - lastClickTime;
+
+        //   console.log({ timeDiff });
+
+        //   if (timeDiff < 300) {
+        //     currentClickCount++;
+        //   } else {
+        //     if (currentClickCount > 0) {
+        //       clickPattern.push(currentClickCount);
+        //     }
+        //     currentClickCount = 1;
+        //   }
+        //   console.log("🚀 ~ handleMouseClick ~ clickPattern:", clickPattern);
+
+        //   lastClickTime = currentTime;
+
+        //   if (Array.isArray(config.trigger)) {
+        //     const triggerPattern = config.trigger as number[];
+        //     const patternToCheck = [...clickPattern, currentClickCount];
+        //     console.log(
+        //       "🚀 ~ handleMouseClick ~ patternToCheck:",
+        //       patternToCheck
+        //     );
+
+        //     if (
+        //       patternToCheck.length === triggerPattern.length &&
+        //       patternToCheck.every(
+        //         (count, index) => count === triggerPattern[index]
+        //       )
+        //     ) {
+        //       setTriggered(true);
+        //       config.callback();
+        //       clickPattern = [];
+        //       currentClickCount = 0;
+        //     } else if (patternToCheck.length >= triggerPattern.length) {
+        //       clickPattern = [];
+        //       currentClickCount = 1;
+        //     }
+        //   }
+        // }
       }
     };
 
-    const handleMouseUp = () => {
-      if (currentClickCount > 0) {
-        clickPattern.push(currentClickCount);
-        currentClickCount = 0;
-      }
-    };
+    // const handleMouseUp = () => {
+    //   if (currentClickCount > 0) {
+    //     clickPattern.push(currentClickCount);
+    //     currentClickCount = 0;
+    //   }
+    // };
 
     const initializeSpeechRecognition = () => {
       if (
@@ -176,7 +204,7 @@ const useEasterEgg = (config: EasterEggConfig) => {
 
     window.addEventListener("keydown", handleKeyPress);
     window.addEventListener("click", handleMouseClick);
-    window.addEventListener("mouseup", handleMouseUp);
+    // window.addEventListener("mouseup", handleMouseUp);
 
     if (config.type === "voiceCommand") {
       initializeSpeechRecognition();
@@ -185,7 +213,7 @@ const useEasterEgg = (config: EasterEggConfig) => {
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
       window.removeEventListener("click", handleMouseClick);
-      window.removeEventListener("mouseup", handleMouseUp);
+      // window.removeEventListener("mouseup", handleMouseUp);
       if (recognition) {
         recognition.stop();
       }

@@ -40,7 +40,7 @@ declare global {
 export type ClickPattern = number[];
 
 export type EasterEggConfig = {
-  trigger: string | ClickPattern;
+  trigger: string;
   callback: () => void;
   type: "keyCombo" | "mouseRegion" | "voiceCommand";
   voicePhrase?: string;
