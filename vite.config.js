@@ -13,7 +13,7 @@ export default defineConfig({
             entry: "./src/index.ts",
             name: "ReactEasterEgg",
             formats: ["es"],
-            fileName: (format) => `index.${format}.js`,
+            fileName: () => `index.js`,
         },
         rollupOptions: {
             external: ["react", "react-dom"],
