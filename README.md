@@ -2,6 +2,8 @@
 
 This project provides a custom React hook for easily adding and managing Easter eggs in your React applications. The hook supports various types of Easter eggs, including key combinations, mouse click patterns, and voice commands.
 
+### [Demo Playground](https://stackblitz.com/edit/react-hidden-easter-egg?file=src%2FApp.js,src%2Fdemo%2Findex.tsx)
+
 ### Features
 
 - Supports multiple types of Easter eggs:
