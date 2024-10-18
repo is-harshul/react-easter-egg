@@ -30,7 +30,7 @@ declare global {
         webkitSpeechRecognition: new () => SpeechRecognition;
     }
 }
-export type ClickPattern = string | number[];
+export type ClickPattern = number[];
 type EasterEggConfig = {
     trigger: string;
     callback: () => void;
