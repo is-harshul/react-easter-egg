@@ -1,7 +1,7 @@
 {
   "name": "react-secret-easter-egg",
   "author": "is-harshul",
-  "version": "1.0.5",
+  "version": "1.0.5-beta",
   "description": "A React hook for creating easter eggs in your application",
   "type": "module",
   "main": "dist/index.js",
