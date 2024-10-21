@@ -4,6 +4,13 @@ This project provides a custom React hook for easily adding and managing Easter 
 
 ### [Demo Playground](https://stackblitz.com/edit/react-hidden-easter-egg?file=src%2FApp.js,src%2Fdemo%2Findex.tsx)
 
+
+### Install
+
+```sh
+npm i react-secret-easter-egg
+```
+
 ### Features
 
 - Supports multiple types of Easter eggs:
