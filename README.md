@@ -7,7 +7,15 @@
 [![license](https://img.shields.io/npm/l/react-secret-easter-egg.svg?style=flat-square)](./LICENSE)
 [![downloads](https://img.shields.io/npm/dm/react-secret-easter-egg.svg?style=flat-square)](https://www.npmjs.com/package/react-secret-easter-egg)
 
-🎮 **[Live Playground →](https://stackblitz.com/edit/react-hidden-easter-egg?file=src%2FApp.js,src%2Fdemo%2Findex.tsx)**
+🎮 **[Live Playground →](https://harshulkansal.in/projects/react-secret-easter-egg)**
+
+### Install
+
+```sh
+npm i react-secret-easter-egg
+```
+
+### Features
 
 ---
 
